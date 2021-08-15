@@ -7,6 +7,11 @@ namespace WiredBrainCoffeeSurveys.Reports
     {
         static void Main(string[] args)
         {
+            GenerateTasksReport();
+        }
+
+        public static void GenerateTasksReport()
+        {
             var tasks = new List<string>();
 
             // Calculated Values
@@ -16,8 +21,8 @@ namespace WiredBrainCoffeeSurveys.Reports
 
             if (Q1Results.CoffeeScore < Q1Results.FoodScore)
             {
-                tasks.Add("Investigate coffee recipes and ingredients"); 
-             }
+                tasks.Add("Investigate coffee recipes and ingredients");
+            }
 
             if (overallScore > 8)
             {
@@ -38,7 +43,27 @@ namespace WiredBrainCoffeeSurveys.Reports
             }
             else
             {
-                tasks.Add("Send out discount coffee coupon"); 
+                tasks.Add("Send out discount coffee coupon");
+            }
+
+            switch (Q1Results.AreaToImporve)
+            {
+                case "RewardsProgram":
+                    tasks.Add("Talk to marketing about improving rewards program");
+                    break;
+
+                case "Cleanliness":
+                    tasks.Add("Raise concerns with cleaning contractor");
+                    break;
+
+                case "MobileApp":
+                    tasks.Add("Contact vendor on ways to improve app");
+                    break;
+
+                default:
+                    tasks.Add("Investigate response comments for ideas");
+                    break;
+
             }
         }
     }
