@@ -138,21 +138,31 @@ namespace WiredBrainCoffeeSurveys.Reports
                 tasks.Add("Rewards participants with discount coffee coupon.");
             }
 
-            switch (results.AreaToImprove)
+            //Shorthand switch expression of switch statement below
+
+            var newTask = results.AreaToImprove switch
             {
-                case  "RewardsProgram":
-                    tasks.Add("Revisit the rewards deals.");
-                    break;
-                case "Cleanliness":
-                    tasks.Add("Contact the cleaning vendor.");
-                    break;
-                case "MobileApp":
-                    tasks.Add("Contact the consulting firm about app.");
-                    break;
-                default:
-                    tasks.Add("Investigate individual comments for ideas.");
-                    break;
-            }
+                "RewardsProgram" => "Revisit the rewards deals.",
+                "Cleanliness" => "Contact the cleaning vendor.",
+                "MobileApp" => "Contact the consulting firm about the app.",
+                _ => "Investigate individual commens for ideas."
+            };
+
+            //switch (results.AreaToImprove)
+            //{
+            //    case  "RewardsProgram":
+            //        tasks.Add("Revisit the rewards deals.");
+            //        break;
+            //    case "Cleanliness":
+            //        tasks.Add("Contact the cleaning vendor.");
+            //        break;
+            //    case "MobileApp":
+            //        tasks.Add("Contact the consulting firm about app.");
+            //        break;
+            //    default:
+            //        tasks.Add("Investigate individual comments for ideas.");
+            //        break;
+            //}
 
             Console.WriteLine(Environment.NewLine + "Tasks Output:");
             foreach(var task in tasks)
