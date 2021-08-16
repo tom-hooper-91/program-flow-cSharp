@@ -9,6 +9,17 @@ namespace WiredBrainCoffeeSurveys.Reports
         static void Main(string[] args)
         {
             GenerateTasksReport();
+
+            for (int i = 0; i < Q1Results.Responses.Count; i++)
+            {
+                var currentResponse = Q1Results.Responses[i];
+
+                if (currentResponse.WouldRecommend < 7)
+                {
+                    Console.WriteLine(currentResponse.Comments);
+                }
+
+            }
         }
 
         public static void GenerateTasksReport()
