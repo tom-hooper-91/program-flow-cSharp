@@ -48,7 +48,7 @@ namespace WiredBrainCoffeeSurveys.Reports
 
         }
 
-        public static void GenerateWinnerEmails()
+        public static void GenerateWinnerEmails(
         {
             var selectedEmails = new List<string>();
             int counter = 0;
